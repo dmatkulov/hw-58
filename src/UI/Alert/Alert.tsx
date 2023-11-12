@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {motion} from 'framer-motion';
 
 interface Props extends React.PropsWithChildren {
   type: 'primary' | 'success' | 'danger' | 'warning';
@@ -19,7 +20,9 @@ const Alert: React.FC<Props> = ({type, onDismiss, clickDismissible, children}) =
   
   if (isDismissed && clickDismissible) {
     return (
-      <div
+      <motion.div
+        animate={{ y: 0, opacity: 1 }}
+        initial={{ y: -20, opacity: 0 }}
         className={`alert alert-${type} d-flex justify-content-between show`}
         style={{cursor: 'pointer'}}
         onClick={() => setIsDismissed(false)}
@@ -28,18 +31,20 @@ const Alert: React.FC<Props> = ({type, onDismiss, clickDismissible, children}) =
           {children}
           <div className="badge text-bg-info">Dismissible on click</div>
         </div>
-      </div>
+      </motion.div>
     );
   }
   
   if (!clickDismissible) {
     return (
-      <div
+      <motion.div
+        animate={{ y: 0, opacity: 1 }}
+        initial={{ y: -20, opacity: 0 }}
         className={`alert alert-${type} d-flex justify-content-between show`}
       >
         {children}
         {closeBtn}
-      </div>
+      </motion.div>
     );
   }
 };
