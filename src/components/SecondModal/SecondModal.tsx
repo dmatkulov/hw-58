@@ -27,7 +27,7 @@ const SecondModal: React.FC = () => {
         Show second modal
       </Button>
       <Modal
-        title="Some kinda title (2)"
+        title="Some kinda modal title (2)"
         show={showModal}
         buttons={btnConfig}
         onClose={() => setShowModal(false)}

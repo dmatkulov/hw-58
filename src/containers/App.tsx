@@ -1,30 +1,22 @@
 import FirstModal from '../components/FirstModal/FirstModal';
 import SecondModal from '../components/SecondModal/SecondModal';
-import Alert from '../UI/Alert/Alert';
+import AlertStatic from '../components/AlertStatic/AlertStatic';
+import AlertDismissible from '../components/AlertDismissible/AlertDismissible';
+import AlertClickDismissible from '../components/AlertClickDismissable/AlertClickDismissible';
 
 const App = () => {
-  // const [showAlert, setShowAlert] = useState(true);
-  // const dismissAlert = () => {
-  //   console.log('dismiss');
-  // };
   
   return (
-    <div className="row container mt-5 mx-auto">
-      <div className="col-6">
+    <div className="container mx-auto">
+      <div className="col-6 mt-5 mb-5 d-flex justify-content-between">
         <FirstModal/>
-      </div>
-      <div className="col-6">
         <SecondModal/>
       </div>
       <div className="row">
         <div className="col-6">
-          <Alert
-            type="success"
-            // show={showAlert}
-            // onDismiss={dismissAlert}
-          >
-            This is success type alert
-          </Alert>
+          <AlertStatic/>
+          <AlertDismissible/>
+          <AlertClickDismissible/>
         </div>
       </div>
     </div>
