@@ -1,4 +1,5 @@
 import React from 'react';
+import {AnimatePresence, motion} from "framer-motion";
 
 interface Props {
   show: boolean;
@@ -6,11 +7,18 @@ interface Props {
 }
 const Backdrop: React.FC<Props> = ({show, onClick}) => {
   return (
-    <div
-      className="modal-backdrop show"
-      style={{display: show ? 'block' : 'none'}}
-      onClick={onClick}
-    />
+      <>
+        <AnimatePresence>
+          <motion.div
+            initial={{opacity: 0}}
+            animate={{opacity: 0.5}}
+            exit={{opacity: 0}}
+            className="modal-backdrop show"
+            style={{display: show ? 'block' : 'none'}}
+            onClick={onClick}
+          />
+        </AnimatePresence>
+      </>
   );
 };
 
